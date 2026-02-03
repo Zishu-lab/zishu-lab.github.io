@@ -4,7 +4,7 @@
 
   // 创建 canvas 元素
   const canvas = document.createElement('canvas');
-  canvas.className = 'fixed inset-0 pointer-events-none z-0';
+  canvas.className = 'fixed inset-0 pointer-events-none z-[-1]';
   canvas.style.width = '100%';
   canvas.style.height = '100%';
   document.body.appendChild(canvas);
