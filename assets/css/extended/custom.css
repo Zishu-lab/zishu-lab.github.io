@@ -8,8 +8,8 @@
    =================================== */
 :root {
   /* Light mode colors */
-  --color-bg: #ffffff;
-  --color-surface: #f8fafc;
+  --color-bg: #C4D8F2;  // RGB(196, 216, 242) - 淡蓝色背景
+  --color-surface: #D5E3F0;  // 比背景稍浅，用于渐变
   --color-text: #1e293b;
   --color-text-muted: #64748b;
   --color-border: #e2e8f0;
