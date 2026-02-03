@@ -1,0 +1,14 @@
+baseURL = "https://username.github.io"
+title = "My Blog"
+languageCode = "en-us"
+paginate = 5
+theme = "PaperMod"
+
+# Enable search
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# PaperMod features
+[params]
+  showReadingTime = true
+  showShareButtons = true
