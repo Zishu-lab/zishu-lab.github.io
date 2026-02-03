@@ -30,6 +30,14 @@ jobs:
           hugo-version: latest
           extended: true
 
+      - name: Debug - Check hugo.toml
+        run: |
+          echo "=== hugo.toml content ==="
+          cat hugo.toml
+          echo ""
+          echo "=== Checking for paginate ==="
+          grep -n "paginate" hugo.toml || echo "No paginate found"
+
       - name: Build site
         run: hugo --minify
 
