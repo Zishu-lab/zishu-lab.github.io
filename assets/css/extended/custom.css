@@ -764,3 +764,27 @@ hr,
     display: none !important;
   }
 }
+
+/* ===================================
+   雪花飘落效果 - 模仿 weilv.space
+   =================================== */
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+.snowflake {
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  pointer-events: none;
+  user-select: none;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
