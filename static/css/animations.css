@@ -1,0 +1,223 @@
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.reveal,
+.reveal-left,
+.reveal-right {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    will-change: opacity, transform;
+}
+
+.reveal {
+    transform: translateY(30px);
+}
+
+.reveal-left {
+    transform: translateX(-30px);
+}
+
+.reveal-right {
+    transform: translateX(30px);
+}
+
+.reveal.active,
+.reveal-left.active,
+.reveal-right.active {
+    opacity: 1;
+    transform: translate(0);
+}
+
+.post-entry {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-entry:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+a {
+    transition: color 0.2s ease;
+}
+
+.tags a {
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.tags a:hover {
+    transform: translateY(-1px);
+}
+
+.nav-links a {
+    transition: color 0.2s ease;
+}
+
+.main {
+    animation: fadeIn 0.5s ease;
+}
+
+.first-entry {
+    animation: fadeInUp 0.6s ease;
+}
+
+.post-entry {
+    animation: fadeInUp 0.5s ease;
+}
+
+.post-entry:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.post-entry:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.post-entry:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+body {
+    background: linear-gradient(
+        -45deg,
+        var(--theme),
+        color-mix(in srgb, var(--theme) 95%, transparent),
+        var(--entry),
+        var(--theme)
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 30s ease infinite;
+}
+
+.pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.shimmer {
+    background: linear-gradient(
+        90deg,
+        var(--tertiary) 0%,
+        color-mix(in srgb, var(--tertiary) 80%, white) 50%,
+        var(--tertiary) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+        opacity: 1;
+        transform: none;
+    }
+
+    body {
+        background: var(--theme);
+        animation: none;
+    }
+
+    .pulse,
+    .float {
+        animation: none;
+    }
+}
+
+.reveal,
+.reveal-left,
+.reveal-right,
+.post-entry,
+.first-entry {
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@media (max-width: 768px) {
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+        transition-duration: 0.3s;
+    }
+
+    .post-entry {
+        transition-duration: 0.2s;
+    }
+}
+
+[data-theme="dark"] .post-entry:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .tags a:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
