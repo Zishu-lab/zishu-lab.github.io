@@ -817,3 +817,166 @@ hr,
     transform: scale(1.2) translateY(-20px);
   }
 }
+
+/* ===================================
+   修复 Canvas 被遮挡问题
+   =================================== */
+
+/* 确保主内容区域透明，让 Canvas 可见 */
+main,
+.single-posts,
+.post-entry,
+article,
+.content,
+.page-content,
+.blog-posts,
+main > * {
+  background: transparent !important;
+}
+
+/* PaperMod 主题容器透明 */
+#content,
+.container,
+.wrapper {
+  background: transparent !important;
+}
+
+/* 确保 Canvas 在最底层 */
+canvas {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: -999 !important;
+  pointer-events: none !important;
+}
+
+/* 确保 body 不遮挡 */
+body {
+  background: transparent !important;
+}
+
+/* 所有内容在 Canvas 之上 */
+main,
+header,
+footer,
+.nav-links {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================================
+   统一所有卡片样式
+   =================================== */
+
+/* 文章内容区域使用玻璃液态效果 */
+.post-single,
+.post-content,
+.post-entry,
+article.post-single {
+  background: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-radius: 1rem !important;
+  padding: 2rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-single,
+  .post-content,
+  .post-entry,
+  article.post-single {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+}
+
+/* 统一标题样式 */
+.post-title,
+h1.post-title,
+.entry-title {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+  color: var(--color-text) !important;
+}
+
+/* 统一元数据样式 */
+.post-meta,
+.post-description {
+  color: var(--color-text-muted) !important;
+  margin-bottom: 1.5rem !important;
+  font-size: 1rem !important;
+}
+
+/* 代码块样式 */
+.post-content pre,
+.post-content code {
+  background: var(--color-surface) !important;
+  border-radius: 0.5rem !important;
+  padding: 1rem !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+/* 链接样式 */
+.post-content a {
+  color: var(--color-accent) !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid transparent !important;
+  transition: all 0.3s ease !important;
+}
+
+.post-content a:hover {
+  color: var(--color-accent-hover) !important;
+  border-bottom-color: var(--color-accent-hover) !important;
+}
+
+/* 列表样式 */
+.post-content ul,
+.post-content ol {
+  padding-left: 1.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.post-content li {
+  margin-bottom: 0.5rem !important;
+}
+
+/* 引用块样式 */
+.post-content blockquote {
+  border-left: 4px solid var(--color-accent) !important;
+  background: var(--color-surface) !important;
+  padding: 1rem 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  border-radius: 0 1rem 1rem 0 !important;
+  color: var(--color-text-muted) !important;
+}
+
+/* 表格样式 */
+.post-content table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 1.5rem 0 !important;
+  border-radius: 1rem !important;
+  overflow: hidden !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+.post-content th,
+.post-content td {
+  padding: 0.75rem 1rem !important;
+  text-align: left !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.post-content th {
+  background: var(--color-surface) !important;
+  font-weight: 600 !important;
+}
+
+.post-content tr:hover {
+  background: var(--color-surface) !important;
+}
