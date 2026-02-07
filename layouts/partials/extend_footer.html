@@ -1,2 +1,15 @@
 {{- /* Background Animation Script */ -}}
 <script src="{{ "js/sakura-stars.js" | relURL }}" defer></script>
+
+{{- /* Social Icons in Footer */ -}}
+{{- if site.Params.socialIcons }}
+<div style="text-align: center; margin-top: 1rem;">
+    {{- range site.Params.socialIcons }}
+    <a href="{{ trim .url " " | safeURL }}" target="_blank" rel="noopener noreferrer me"
+       title="{{ (.title | default .name) | title }}"
+       style="margin: 0 0.5rem; color: var(--primary); text-decoration: none;">
+        {{ partial "svg.html" . }}
+    </a>
+    {{- end }}
+</div>
+{{- end }}

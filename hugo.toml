@@ -18,9 +18,9 @@ theme = "PaperMod"
   keywords = ["博客", "技术", "编程", "开发", "Hugo", "PaperMod"]
   author = "Zishu-lab"
 
-  # Social links (shown in footer)
-  [[params.social]]
-    name = "GitHub"
+  # Social icons (shown in footer/home page)
+  [[params.socialIcons]]
+    name = "github"
     url = "https://github.com/Zishu-lab"
 
   # Display options
